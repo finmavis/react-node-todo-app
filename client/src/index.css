@@ -1,0 +1,116 @@
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  height: auto;
+  min-height: 100%;
+}
+
+#root {
+  height: auto;
+  min-height: 100%;
+}
+
+.fa-clipboard-list {
+  font-size: 24px;
+}
+
+.wrapper {
+  padding-top: 20px;
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.todo-wrap {
+  width: 95%;
+  max-width: 700px;
+}
+
+.todo-data {
+  margin-top: 20px;
+}
+
+.table th:first-child,
+.table td:first-child,
+.table th:last-child,
+.table td:last-child {
+	width: 65px;
+}
+
+.table th a,
+.table td a {
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+a .fa-trash {
+  color: #d64242;
+}
+
+a .fa-trash:hover,
+a .fa-trash:focus {
+  color: #c53131;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-family: inherit;
+  color: #fff;
+  height: 45px;
+}
+
+footer a {
+  color: #fff;
+}
+
+footer a:hover,
+footer a:focus {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.modal-dialog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100% - 101px);
+}
+
+.loader {
+  display: flex;
+  width: 100%;
+  height: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader:after {
+  content: " ";
+  display: block;
+  width: 46px;
+  height: 46px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 5px solid #343a40;
+  border-color: #343a40 transparent #343a40 transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

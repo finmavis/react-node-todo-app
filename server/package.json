@@ -1,0 +1,14 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "Todo Api for React.js",
+  "main": "app.js",
+  "author": "Fin Mavis",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.2",
+    "sanitize-html": "^1.18.2"
+  }
+}
