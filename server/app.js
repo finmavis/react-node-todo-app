@@ -12,6 +12,6 @@ app.use(bodyParser.json());
 app.use("/", indexRoute);
 app.use("/api/todos", indexApiRoute);
 
-app.listen(3001, process.env.IP, () => {
+app.listen(process.env.PORT, process.env.IP, () => {
     console.log("Server Started!");
 });
