@@ -12,10 +12,10 @@ A basic todo app that uses a [ReactJS](https://reactjs.org/) frontend to manage 
 ### React Component Plan
 
 #### Todo
-  ![Image of Todo Component](https://github.com/finmavis/react-node-todo-app/blob/master/docs/Component%20Plan%20Todo.png)
+  ![Image of Todo Component](https://github.com/finmavis/react-node-todo-app/blob/master/docs/Component%20Plan%20Todo.PNG)
   
 #### Modal
-  ![Image of Todo Component](https://github.com/finmavis/react-node-todo-app/blob/master/docs/Component%20Plan%20Modal.png)
+  ![Image of Todo Component](https://github.com/finmavis/react-node-todo-app/blob/master/docs/Component%20Plan%20Modal.PNG)
   
   
 ### Express Route Plan
