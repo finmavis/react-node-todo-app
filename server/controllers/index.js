@@ -9,7 +9,7 @@ const newTodo = (req) => {
 }
 
 const sendIndex = (req, res) => {
-    res.send("index.html");
+    res.sendFile("index.html");
 }
 
 const getTodos = (req, res) => {
