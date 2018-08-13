@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
         case(actionTypes.ADD_TODO) : 
             return {
                 ...state,
-                todoList: state.todoItem.concat(action.todo)
+                todoList: state.todoList.concat(action.todo)
             }
         case(actionTypes.EDIT_TODO) :
             const updatedTodo = state.todoList.map(todoItem => todoItem._id === action.todo._id ? {...todoItem, ...action.todo} : todoItem);
