@@ -7,7 +7,7 @@ const TodoHeader = (props) => (
             <InputGroupAddon addonType="prepend">
                 <Button color="info" onClick={props.toggleModal}><i className="fas fa-plus"></i></Button>
             </InputGroupAddon>
-            <Input placeholder="Search todo" onChange={(e) => props.search(e.target.value)} />
+            <Input placeholder="Search todo" onChange={(e) => props.search(e)} name="search" />
         </InputGroup>
     </div>
 );

@@ -17,7 +17,7 @@ export const fetchTodo = () => {
             })
             .catch(err => {
                 dispatch(fetchFail({status: err.response.status, statusText: err.response.statusText}));
-            })
+            });
     }
 }
 
@@ -31,12 +31,12 @@ export const searchTodo = value => {
 export const postTodo = todo => {
     return dispatch => {
         axios.post('/api/todos', todo)
-            .then(resTodos => {
-                dispatch(addTodo(resTodos.data))
+            .then(res => {
+                dispatch(addTodo(res.data));
             })
             .catch(err => {
                 dispatch(fetchFail({status: err.response.status, statusText: err.response.statusText}));
-            })
+            });
     }
 }
 
@@ -55,7 +55,7 @@ export const putTodo = (id, todo) => {
             })
             .catch(err => {
                 dispatch(fetchFail({status: err.response.status, statusText: err.response.statusText}));
-            })
+            });
     }
 }
 
@@ -74,7 +74,7 @@ export const deleteTodoServer = id => {
             })
             .catch(err => {
                 dispatch(fetchFail({status: err.response.status, statusText: err.response.statusText}));
-            })
+            });
     }
 }
 

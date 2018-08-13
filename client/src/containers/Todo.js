@@ -15,7 +15,8 @@ class Todo extends Component {
         id: '',
         todo: '',
         modeModal: 'Add',
-        completed: false
+        completed: false,
+        search: ''
     }
 
     componentDidMount() {
@@ -52,10 +53,10 @@ class Todo extends Component {
     }
 
     openEditTodo = (id) => {
-        const selectedTodo = this.props.todoItem.find(todo => todo._id === id);
+        const selectedTodo = this.props.todoList.find(todo => todo._id === id);
         this.setState({
             modal: !this.state.modal, 
-            id:selectedTodo._id, 
+            id: selectedTodo._id, 
             todo: selectedTodo.todo, 
             completed: selectedTodo.completed, 
             modeModal: 'Edit'
@@ -72,9 +73,11 @@ class Todo extends Component {
     }
 
     render() {
+        let filteredTodo;
         let todoContent = <Spinner />
-        if(this.props.todoItem) {
-            todoContent = <TodoList todos={this.props.todoItem} deleteTodo={(id) => this.props.deleteTodo(id)} edit={(id) => this.openEditTodo(id)} />
+        if(this.props.todoList) {
+            filteredTodo = this.props.todoList.filter(item => item.todo.toLowerCase().search(this.state.search.toLowerCase()) !== -1 );
+            todoContent = <TodoList todos={filteredTodo} deleteTodo={(id) => this.props.deleteTodo(id)} edit={(id) => this.openEditTodo(id)} />
         }
         if(this.props.error) {
             todoContent = <ModalError isOpen={this.props.error} toggleModal={this.props.acknowledgeError} error={this.props.error} />
@@ -82,7 +85,7 @@ class Todo extends Component {
         return (
             <div className="wrapper d-flex justify-content-center">
                 <div className="todo-wrap">
-                    <TodoHeader search={(value) => this.props.searchTodo(value)} toggleModal={this.toggleModal} />
+                    <TodoHeader search={(e) => this.inputHandle(e)} toggleModal={this.toggleModal} />
                     { todoContent }
                 </div>
                 <Modal 
@@ -101,7 +104,7 @@ class Todo extends Component {
 
 const mapStateToProps = state => {
     return {
-        todoItem: state.todoItem,
+        todoList: state.todoList,
         error: state.error
     }
 }
@@ -109,7 +112,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fetchTodos: () => dispatch(actionCreators.fetchTodo()),
-        searchTodo: (value) => dispatch(actionCreators.searchTodo(value)),
         postTodo: (todo) => dispatch(actionCreators.postTodo(todo)),
         editTodo: (id, todo) => dispatch(actionCreators.putTodo(id, todo)),
         deleteTodo: (id) => dispatch(actionCreators.deleteTodoServer(id)),
